@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mobilenumber:</strong>
+  <%= @customer.mobilenumber %>
+</p>
+
+<p>
+  <strong>Authtoken:</strong>
+  <%= @customer.authtoken %>
+</p>
+
+<p>
+  <strong>Locationtarget:</strong>
+  <%= @customer.locationtarget %>
+</p>
+
+<p>
+  <strong>Pricepoint:</strong>
+  <%= @customer.pricepoint %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

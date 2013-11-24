@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124183413) do
+ActiveRecord::Schema.define(version: 20131124190035) do
+
+  create_table "customers", force: true do |t|
+    t.string   "mobilenumber"
+    t.string   "authtoken"
+    t.string   "locationtarget"
+    t.string   "pricepoint"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
