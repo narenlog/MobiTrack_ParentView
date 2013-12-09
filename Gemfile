@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 1.2'
 gem "bootstrap-sass", "~> 3.0.2.1"
 gem 'devise', '~> 3.2.1'
 gem "parse-ruby-client", "~> 0.2.0"
+gem 'geocoder'
+gem 'gmaps4rails'
 
 group :development, :test do
 	# Use sqlite3 as the database for Active Record

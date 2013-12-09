@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124190035) do
+ActiveRecord::Schema.define(version: 20131209133301) do
 
   create_table "customers", force: true do |t|
     t.string   "mobilenumber"
     t.string   "authtoken"
     t.string   "locationtarget"
     t.string   "pricepoint"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "location_targets", force: true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "description"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,6 @@
 Locationview::Application.routes.draw do
+  resources :location_targets
+
   resources :customers
 
   devise_for :users

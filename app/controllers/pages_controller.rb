@@ -31,6 +31,27 @@ before_action :check_customer, only: [:map]
       #puts school_van_location_results_hash
      puts "Latitude : ", school_van_location_results_hash["location"].latitude
      puts "Longitude : ", school_van_location_results_hash["location"].longitude
+
+      @location_targets = LocationTarget.find_by(title:@customer.locationtarget)#update the location_target's current location
+      #puts @location_targets
+      #@location_target = @location_targets[0]
+      @location_targets.latitude = school_van_location_results_hash["location"].latitude
+      @location_targets.longitude = school_van_location_results_hash["location"].longitude
+      @location_targets.save
+
+      puts @location_targets.latitude
+      puts @location_targets.longitude
+
+      #https://github.com/JonKernPA/gmaps
+      #https://github.com/apneadiving/Google-Maps-for-Rails
+       @hash = Gmaps4rails.build_markers(@location_targets) do |location_target, marker|
+          marker.lat location_target.latitude
+          marker.lng location_target.longitude
+          marker.title location_target.title
+        end
+
+        
+
   end
 
    private
