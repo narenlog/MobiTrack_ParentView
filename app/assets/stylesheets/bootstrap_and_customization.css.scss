@@ -17,3 +17,20 @@ $jumbotron-bg:                                         white;
 .navbar-brand {
      font-weight: bold;
 }
+
+//Make the google map mobile-responsive : http://stackoverflow.com/a/15930491
+.map_container {
+padding: 6px;
+border-width: 1px;
+border-style: solid;
+border-color: #ccc #ccc #999 #ccc;
+-webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+-moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+display: block;
+}
+
+.gmaps4rails_map {
+  display: block;
+  height: 400px;
+}
