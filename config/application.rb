@@ -22,5 +22,7 @@ module Locationview
 
     #Required for Devise
     config.assets.initialize_on_precompile = false
+    
+    config.time_zone = 'Chennai'
   end
 end

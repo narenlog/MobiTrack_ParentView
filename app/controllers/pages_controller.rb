@@ -31,7 +31,11 @@ before_action :check_customer, only: [:map]
                                         q.order_by = "created_at"
                                         q.order = :descending # grab the last location of the van
                                       end.get.first #.last returns hash of object instead of resultset array returned by .get
-      #puts school_van_location_results_hash
+     #puts school_van_location_results_hash
+     @location_update_time = school_van_location_results_hash["updatedAt"]
+     @location_update_time = DateTime.strptime(@location_update_time , '%Y-%m-%dT%H:%M:%S').in_time_zone("Chennai") 
+     @location_update_time = @location_update_time.strftime("%I:%M%p") + @location_update_time.strftime(" on %B %d, %Y ") 
+
      puts "Latitude : ", school_van_location_results_hash["location"].latitude
      puts "Longitude : ", school_van_location_results_hash["location"].longitude
 
