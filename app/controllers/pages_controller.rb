@@ -26,8 +26,11 @@ before_action :check_customer, only: [:map]
 
       #https://parse.com/questions/query-with-filter-on-pointer-field
       #https://github.com/adelevie/parse-ruby-client#relational-queries
-     school_van_location_query =  Parse::Query.new("Posts").in_query("user", school_van_query) #find the van's location
-     school_van_location_results_hash= school_van_location_query.get.last #.last returns hash of object instead of resultset array returned by .get
+     school_van_location_query =  Parse::Query.new("Posts").in_query("user", school_van_query)#find the van's location
+     school_van_location_results_hash= school_van_location_query.tap do |q|
+                                        q.order_by = "created_at"
+                                        q.order = :descending # grab the last location of the van
+                                      end.get.first #.last returns hash of object instead of resultset array returned by .get
       #puts school_van_location_results_hash
      puts "Latitude : ", school_van_location_results_hash["location"].latitude
      puts "Longitude : ", school_van_location_results_hash["location"].longitude
